@@ -16,7 +16,8 @@ jobs:
         run: git clone --depth=1 ${{ steps.get-project.outputs.PROJECT }} project
       - name: Build the app
         working-directory: ./project/easycontrol
-        run: |
+        run: 
+            chmod +x gradlew
           ./gradlew assembleDebug --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v2
