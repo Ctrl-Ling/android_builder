@@ -18,17 +18,12 @@ jobs:
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
       - name: Clone project
         run: git clone --depth=1 ${{ steps.get-project.outputs.PROJECT }} project
-      - name: Build the app1
-        working-directory: ./project/easycontrol/server
-        run: |
-          if [ ! -f "gradlew" ]; then gradle wrapper; fi
-          chmod +x gradlew
-          ./gradlew assembleRelease --stacktrace
-      - name: Build the app2
+      - name: Build the app
         working-directory: ./project/easycontrol
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --stacktrace
+          ./gradlew copyDebug --stacktrace
+          ./gradlew assembleDebug --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
