@@ -22,8 +22,8 @@ jobs:
         working-directory: ./project/easycontrol
         run: |
           chmod +x gradlew
-          ./gradlew copyDebug --stacktrace
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew copyRelease --stacktrace
+          ./gradlew build --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
