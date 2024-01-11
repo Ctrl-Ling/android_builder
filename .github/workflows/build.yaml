@@ -10,7 +10,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: 'dev'
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
