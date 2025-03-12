@@ -16,7 +16,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
         with:
-          gradle-version: '9.0'
+          gradle-version: '8.9'
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
